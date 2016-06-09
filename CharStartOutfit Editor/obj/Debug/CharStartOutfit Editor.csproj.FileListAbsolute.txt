@@ -1,0 +1,21 @@
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\bin\Debug\CharStartOutfit Editor.exe.config
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\bin\Debug\CharStartOutfit Editor.exe
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\bin\Debug\CharStartOutfit Editor.pdb
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\bin\Debug\MahApps.Metro.dll
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\bin\Debug\System.Windows.Interactivity.dll
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\bin\Debug\MahApps.Metro.pdb
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\bin\Debug\MahApps.Metro.xml
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor.csprojResolveAssemblyReference.cache
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\Resources\Icons.baml
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\Resources\IconsNonShared.baml
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\MainWindow.g.cs
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\App.g.cs
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor_MarkupCompile.cache
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor_MarkupCompile.lref
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\App.baml
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\MainWindow.baml
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor.g.resources
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit_Editor.Properties.Resources.resources
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor.csproj.GenerateResource.Cache
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor.exe
+c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor.pdb

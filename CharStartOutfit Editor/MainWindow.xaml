@@ -1,0 +1,111 @@
+﻿<Controls:MetroWindow x:Class="CharStartOutfit_Editor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:CharStartOutfit_Editor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="581.618" Width="1290" Loaded="MetroWindow_Loaded">
+    <Grid>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="552" VerticalAlignment="Top" Width="1281">
+            <TabItem Header="Humain">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="H_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="H_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="H_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180"/>
+                    <ComboBox x:Name="H_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="H_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="H_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="H_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="H_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="H_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="H_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Nain">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+            <TabItem Header="Elfe de la nuit">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+            <TabItem Header="Gnome">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+            <TabItem Header="Draenei">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+            <TabItem Header="Orc">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+            <TabItem Header="Mort-vivant">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+            <TabItem Header="Tauren">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+            <TabItem Header="Troll">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+            <TabItem Header="Elfe de sang">
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_information_circle}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Besoin d'aide ?" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+
+</Controls:MetroWindow>
