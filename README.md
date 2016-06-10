@@ -5,9 +5,9 @@ You'll have several options on the editor that'll help you in that way. :+1:
 
 ### Project Informations ###
 
-* Version : 1.0.0.0
+* Version : 1.1.0.0
 * Language : C#
-* Library : They'll all included, no trouble here :D
+* Library : They're all included, no trouble here :D
 
 ### How can I participate ? ###
 
