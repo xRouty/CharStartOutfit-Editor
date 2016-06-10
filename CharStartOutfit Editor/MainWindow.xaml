@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="581.618" Width="1290" Loaded="MetroWindow_Loaded">
     <Grid>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="552" VerticalAlignment="Top" Width="1281">
+        <TabControl x:Name="ChoixRace" HorizontalAlignment="Left" Height="552" VerticalAlignment="Top" Width="1281">
             <TabItem Header="Humain">
                 <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
                     <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
@@ -23,8 +23,30 @@
                     </Rectangle>
                     <Label x:Name="H_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
                     <Label x:Name="H_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="H_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180"/>
-                    <ComboBox x:Name="H_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180"/>
+                    <ComboBox x:Name="H_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="H_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="H_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="H_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
                     <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
                     <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
                     <GroupBox x:Name="H_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
@@ -52,31 +74,580 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Nain">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="N_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="N_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="N_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="N_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="N_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="N_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="N_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="N_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="N_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="N_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="N_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="N_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Elfe de la nuit">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="EN_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="EN_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="EN_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="EN_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="EN_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="EN_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="EN_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="EN_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="EN_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="EN_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="EN_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="EN_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Gnome">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="G_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="G_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="G_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="G_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="G_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="G_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="G_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="G_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="G_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="G_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="G_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="G_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Draenei">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="D_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="D_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="D_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="D_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="D_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="D_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="D_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="D_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="D_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="D_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="D_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="D_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Orc">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="O_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="O_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="O_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="O_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="O_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="O_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="O_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="O_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="O_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="O_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="O_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="O_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Mort-vivant">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="M_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="M_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="M_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="M_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="M_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="M_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="M_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="M_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="M_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="M_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="M_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="M_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Tauren">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="TA_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="TA_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="TA_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="TA_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="TA_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="TA_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="TA_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="TA_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="TA_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="TA_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="TA_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="TA_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Troll">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="TR_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="TR_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="TR_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="TR_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="TR_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="TR_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="TR_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="TR_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="TR_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="TR_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="TR_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="TR_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Elfe de sang">
-                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13"/>
+                <Grid Background="#FFE5E5E5" Margin="-13,0,-10,-13">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="489" Margin="644,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="1" RenderTransformOrigin="0.5,0.5">
+                        <Rectangle.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Rectangle.RenderTransform>
+                    </Rectangle>
+                    <Label x:Name="ES_h_homme" Content="Homme" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="ES_h_femme" Content="Femme" HorizontalAlignment="Left" Margin="666,10,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="ES_h_class" HorizontalAlignment="Left" Margin="445,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="ES_h_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <ComboBox x:Name="ES_f_class" HorizontalAlignment="Left" Margin="1091,10,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="ES_f_class_SelectionChanged">
+                        <ComboBoxItem Content="Guerrier"/>
+                        <ComboBoxItem Content="Paladin"/>
+                        <ComboBoxItem Content="Chasseur"/>
+                        <ComboBoxItem Content="Voleur"/>
+                        <ComboBoxItem Content="Prêtre"/>
+                        <ComboBoxItem Content="Chevalier de la mort"/>
+                        <ComboBoxItem Content="Chaman"/>
+                        <ComboBoxItem Content="Mage"/>
+                        <ComboBoxItem Content="Démoniste"/>
+                        <ComboBoxItem Content="Druide"/>
+                    </ComboBox>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="237,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Veuillez choisir une classe à modifier" HorizontalAlignment="Left" Margin="883,10,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="ES_h_modif" Header="Modifications homme" HorizontalAlignment="Left" Margin="21,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="ES_h_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="ES_h_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="ES_f_modif" Header="Modifications femme" HorizontalAlignment="Left" Margin="667,52,0,0" VerticalAlignment="Top" Width="604" Height="442">
+                        <Grid HorizontalAlignment="Left" Height="405" VerticalAlignment="Top" Width="594" Margin="0,0,-2,-2">
+                            <DataGrid x:Name="ES_f_data" IsReadOnly="true" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ColumnWidth="*" VerticalAlignment="Top" Height="402" Margin="2,0,2,0" MinColumnWidth="20" MouseDoubleClick="ES_f_data_MouseDoubleClick">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemID}" IsReadOnly="False" Header="Item ID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=ItemDisplayID}" IsReadOnly="False" Header="Item DisplayID"/>
+                                    <DataGridTextColumn Binding="{Binding Path=EquipementID}" IsReadOnly="False" Header="Equipement ID"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
