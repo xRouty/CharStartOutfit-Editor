@@ -8,7 +8,7 @@ This software is under GNU License -> https://www.gnu.org/licenses/gpl-3.0.en.ht
 
 ### Project Informations ###
 
-* Version : 1.1.0.0
+* Version : 1.2.0.0
 * Language : C#
 * Library : They're all included, no trouble here :D
 
