@@ -14,13 +14,25 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using System.IO;
+using MahApps.Metro.Controls.Dialogs;
+
+/// This file is part of Mihawk - WoW-Emu.
+
+/// WE-Editor is free software: you can redistribute it and/or modify
+/// it under the terms of the GNU General Public License as published by
+/// the Free Software Foundation, either version 3 of the License, or
+/// (at your option) any later version.
+
+/// WE-Editor is distributed in the hope that it will be useful,
+/// but WITHOUT ANY WARRANTY; without even the implied warranty of
+/// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+/// GNU General Public License for more details.
+
+/// You should have received a copy of the GNU General Public License
+/// along with WE-Editor.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace CharStartOutfit_Editor
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-
     public partial class MainWindow : MetroWindow
     {
         public ReadCSV CharStartOutfitCSV = new ReadCSV("CharStartOutfit.dbc.csv");
@@ -38,6 +50,593 @@ namespace CharStartOutfit_Editor
         {
             // Nothing here..
         }
+
+        #region Refresh du DataGrid
+
+        private void refreshRaceClasseSexe(int Race, int Classe, int Sexe)
+        {
+            // HUMAIN
+
+            if (Race == 1)
+            {
+                if (Sexe == 0)
+                {
+                    H_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        H_h_data.Items.Add(data);
+                    }
+
+                    H_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    H_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        H_f_data.Items.Add(data);
+                    }
+
+                    H_f_data.Items.Refresh();
+                }
+            }
+
+            // NAIN
+
+            else if (Race == 2)
+            {
+                if (Sexe == 0)
+                {
+                    N_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        N_h_data.Items.Add(data);
+                    }
+
+                    N_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    N_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        N_f_data.Items.Add(data);
+                    }
+
+                    N_f_data.Items.Refresh();
+                }
+            }
+
+            // ELFE DE LA NUIT
+
+            else if (Race == 3)
+            {
+                if (Sexe == 0)
+                {
+                    EN_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        EN_h_data.Items.Add(data);
+                    }
+
+                    EN_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    EN_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                       EN_f_data.Items.Add(data);
+                    }
+
+                    EN_f_data.Items.Refresh();
+                }
+            }
+
+            // MORT-VIVANT
+
+            else if (Race == 4)
+            {
+                if (Sexe == 0)
+                {
+                    M_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        M_h_data.Items.Add(data);
+                    }
+
+                    M_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    M_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        M_f_data.Items.Add(data);
+                    }
+
+                    M_f_data.Items.Refresh();
+                }
+            }
+
+            // TAUREN
+
+            else if (Race == 5)
+            {
+                if (Sexe == 0)
+                {
+                    TA_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        TA_h_data.Items.Add(data);
+                    }
+
+                    TA_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    TA_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        TA_f_data.Items.Add(data);
+                    }
+
+                    TA_f_data.Items.Refresh();
+                }
+            }
+
+            // GNOME
+
+            else if (Race == 6)
+            {
+                if (Sexe == 0)
+                {
+                    G_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        G_h_data.Items.Add(data);
+                    }
+
+                    G_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    G_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        G_f_data.Items.Add(data);
+                    }
+
+                    G_f_data.Items.Refresh();
+                }
+            }
+
+            // TROLL
+
+            else if (Race == 7)
+            {
+                if (Sexe == 0)
+                {
+                    TR_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        TR_h_data.Items.Add(data);
+                    }
+
+                    TR_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    TR_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        TR_f_data.Items.Add(data);
+                    }
+
+                    TR_f_data.Items.Refresh();
+                }
+            }
+
+            // ELFE DE SANG
+
+            else if (Race == 8)
+            {
+                if (Sexe == 0)
+                {
+                    ES_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        ES_h_data.Items.Add(data);
+                    }
+
+                    ES_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    ES_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        ES_f_data.Items.Add(data);
+                    }
+
+                    ES_f_data.Items.Refresh();
+                }
+            }
+            
+            // DRAENEI
+
+            else if (Race == 10)
+            {
+                if (Sexe == 0)
+                {
+                    D_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        D_h_data.Items.Add(data);
+                    }
+
+                    D_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    D_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        D_f_data.Items.Add(data);
+                    }
+
+                    D_f_data.Items.Refresh();
+                }
+            }
+
+            // ORC
+
+            else if (Race == 11)
+            {
+                if (Sexe == 0)
+                {
+                    O_h_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        O_h_data.Items.Add(data);
+                    }
+
+                    O_h_data.Items.Refresh();
+                }
+                else if (Sexe == 1)
+                {
+                    O_f_data.Items.Clear();
+
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    string[] result1 = ItemsID.Split(',');
+                    string[] result2 = ItemsDisplayID.Split(',');
+                    string[] result3 = EquipementsID.Split(',');
+
+                    for (int i = 0; i < 24; i++)
+                    {
+                        var data = new DataGrid
+                        {
+                            ItemID = Convert.ToInt32(result1[i]),
+                            ItemDisplayID = Convert.ToInt32(result2[i]),
+                            EquipementID = Convert.ToInt32(result3[i])
+                        };
+
+                        O_f_data.Items.Add(data);
+                    }
+
+                    O_f_data.Items.Refresh();
+                }
+            }
+        }
+
+        #endregion
 
         #region ComboBox - Séléction de la classe pour chaque race/sexe (Remplissage)
 
@@ -1808,9 +2407,28 @@ namespace CharStartOutfit_Editor
                 int DisplayID = CharStartOutfitCSV.getItemDisplayID(Race, Classe, Sexe, Index);
                 int EquipementID = CharStartOutfitCSV.getEquipementID(Race, Classe, Sexe, Index);
 
-                MessageBox.Show("ItemID : " + ItemID
-                    + "\nItemDisplayID : " + DisplayID
-                    + "\nEquipementID : " + EquipementID);
+                LineEdit NewForm = new LineEdit(ItemID, DisplayID, EquipementID);
+                NewForm.ShowDialog();
+
+                int NewItemID = NewForm.returnItemID();
+                int NewItemDisplayID = NewForm.returnItemDisplayID();
+                int NewEquipementID = NewForm.returnEquipementID();
+
+                if (ItemID != NewItemID || DisplayID != NewItemDisplayID || EquipementID != NewEquipementID)
+                {
+                    CharStartOutfitCSV.setItemID(Race, Classe, Sexe, Index, NewItemID);
+                    CharStartOutfitCSV.setItemDisplayID(Race, Classe, Sexe, Index, NewItemDisplayID);
+                    CharStartOutfitCSV.setEquipementID(Race, Classe, Sexe, Index, NewEquipementID);
+
+                    refreshRaceClasseSexe(Race, Classe, Sexe);
+                }
+                else
+                {
+                    // TO COMPLETE HERE
+                    MessageBox.Show("ItemID : " + ItemID
+                        + "\nItemDisplayID : " + DisplayID
+                        + "\nEquipementID : " + EquipementID);
+                }
             }
         }
 
@@ -3166,5 +3784,83 @@ namespace CharStartOutfit_Editor
         #endregion
 
         #endregion
+
+        #region Export du CSV
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                exportCSV();
+                MessageBox.Show("Sauvegarde effectuée avec succès !");
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Un problème a été rencontré lors de la sauvegarde.");
+            }
+        }
+
+        private void exportCSV()
+        {
+            Race = 1;
+            Classe = 1;
+
+            using (StreamWriter sw = new StreamWriter(@"CSV/CharStartOutfit_sortie.dbc.csv"))
+            {
+                sw.WriteLine("long,byte,byte,byte,byte,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,");
+
+                for (int i = 0; i < CharStartOutfitCSV.Length; i++)
+                {
+                    // HOMME
+                    Sexe = 0;
+
+                    int UniqueID = CharStartOutfitCSV.getUniqueIndex(Race, Classe, Sexe);
+                    string ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    string ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    string EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    if (ItemsID == null || ItemsID == "") { }
+                    else
+                        sw.WriteLine(UniqueID + "," + Race + "," + Classe + "," + Sexe + ",0," + ItemsID + ItemsDisplayID + EquipementsID);
+
+                    // FEMME
+                    Sexe = 1;
+
+                    UniqueID = CharStartOutfitCSV.getUniqueIndex(Race, Classe, Sexe);
+                    ItemsID = CharStartOutfitCSV.searchRaceClassSexe_ItemsID(Race, Classe, Sexe);
+                    ItemsDisplayID = CharStartOutfitCSV.searchRaceClassSexe_ItemsDisplaysID(Race, Classe, Sexe);
+                    EquipementsID = CharStartOutfitCSV.searchRaceClassSexe_EquipementsID(Race, Classe, Sexe);
+
+                    if (ItemsID == null || ItemsID == "") { }
+                    else
+                        sw.WriteLine(UniqueID + "," + Race + "," + Classe + "," + Sexe + ",0," + ItemsID + ItemsDisplayID + EquipementsID);
+
+                    Classe += 1;
+                    if (Classe > 11)
+                    {
+                        Classe = 1;
+                        Race += 1;
+                    }
+                }
+            }
+        }
+
+        #endregion
+
+        // Besoin d'aide ?
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var mySettings = new MetroDialogSettings()
+            {
+                AffirmativeButtonText = "Ok",
+                AnimateShow = true,
+                AnimateHide = true
+            };
+
+            var result = await this.ShowMessageAsync("Informations",
+                "Créé par : Mihawk (InsaneHawk)\nLicense : GNU\nVersion : 1.2.0.0\n\nUn problème ? Une question ?\nN'hésitez pas à me contacter sur skype : natsume.kun",
+                MessageDialogStyle.Affirmative, mySettings);
+        }
     }
 }

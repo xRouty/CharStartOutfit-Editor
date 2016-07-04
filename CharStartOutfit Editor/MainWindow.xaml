@@ -6,7 +6,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:CharStartOutfit_Editor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="581.618" Width="1290" Loaded="MetroWindow_Loaded">
+        Title="CharStartOutfit Editor" Height="581.618" Width="1290" Loaded="MetroWindow_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="icon.ico">
     <Grid>
         <TabControl x:Name="ChoixRace" HorizontalAlignment="Left" Height="552" VerticalAlignment="Top" Width="1281">
             <TabItem Header="Humain">
@@ -662,7 +662,7 @@
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button>
+            <Button Click="Button_Click_1">
                 <StackPanel Orientation="Horizontal">
                     <Rectangle Width="20"
                    Height="20"
@@ -674,6 +674,21 @@
                     <TextBlock Margin="4 0 0 0"
                    VerticalAlignment="Center"
                    Text="Besoin d'aide ?" />
+                </StackPanel>
+            </Button>
+
+            <Button Click="Button_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20"
+                   Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_save}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="Exporter le CSV" />
                 </StackPanel>
             </Button>
         </Controls:WindowCommands>

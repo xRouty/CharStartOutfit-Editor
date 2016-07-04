@@ -19,3 +19,5 @@ c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor
 c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor.csproj.GenerateResource.Cache
 c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor.exe
 c:\users\insanehawk\documents\visual studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\CharStartOutfit Editor.pdb
+C:\Users\InsaneHawk\Documents\Visual Studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\LineEdit.g.cs
+C:\Users\InsaneHawk\Documents\Visual Studio 2015\Projects\CharStartOutfit Editor\CharStartOutfit Editor\obj\Debug\LineEdit.baml
